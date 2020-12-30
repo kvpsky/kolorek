@@ -2,6 +2,7 @@ package org.miraicode.kolorek;
 
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
+import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.entities.SelfUser;
 import net.dv8tion.jda.api.events.ReadyEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
@@ -15,6 +16,7 @@ public class Main extends ListenerAdapter {
     public static Connection connection;
     public static void main(String[] args) throws LoginException {
         JDA jda = JDABuilder.createDefault(System.getenv("DISCORD_TOKEN")).enableIntents(GatewayIntent.GUILD_MEMBERS).setChunkingFilter(ChunkingFilter.ALL).build();
+        jda.getPresence().setActivity(Activity.listening("Java " + System.getProperty("java.version")));
         jda.addEventListener(new Main());
         jda.addEventListener(new Kolorek());
         jda.addEventListener(new JoinLeave());
