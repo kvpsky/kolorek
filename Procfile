@@ -1,0 +1,1 @@
+bot: java -jar build/libs/kolorek-2.0-SNAPSHOT-all.jar
