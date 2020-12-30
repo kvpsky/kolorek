@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'com.github.johnrengelman.shadow' version '6.1.0'
+}
+
+mainClassName = 'org.miraicode.kolorek.Main'
+
+group 'org.miraicode'
+version '2.0-SNAPSHOT'
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+    implementation 'net.dv8tion:JDA:4.2.0_224'
+    implementation 'ch.qos.logback:logback-classic:1.2.3'
+    implementation 'org.postgresql:postgresql:42.2.18'
+}
+
+test {
+    useJUnitPlatform()
+}
+compileJava.options.encoding = 'UTF-8'
